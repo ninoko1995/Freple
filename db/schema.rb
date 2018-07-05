@@ -10,18 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_05_172349) do
+ActiveRecord::Schema.define(version: 2018_07_05_212425) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
-    t.date "date"
-    t.string "start_time"
     t.string "place"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "group_id"
     t.integer "price"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "dead_line"
+    t.boolean "release"
+    t.boolean "accepted"
+    t.integer "accepted_number"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -33,6 +37,21 @@ ActiveRecord::Schema.define(version: 2018_07_05_172349) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.index ["email"], name: "index_groups_on_email", unique: true
+  end
+
+  create_table "interestings", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+    t.boolean "acccepted", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

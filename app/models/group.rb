@@ -1,6 +1,5 @@
-class User < ApplicationRecord
-	has_many :participations
-	has_many :interestings
+class Group < ApplicationRecord
+	has_many :events
 
 	before_save {self.email = email.downcase}
 	validates :name, 
@@ -13,4 +12,9 @@ class User < ApplicationRecord
 	has_secure_password
 	validates :password,
 		length: {minimum:6}
+	validates :tel,
+		length: {in: 8..12},
+		numericality:{only_integer: true}
+	validates :captain_name,
+		length:{in: 2..50}
 end

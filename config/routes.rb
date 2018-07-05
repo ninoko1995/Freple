@@ -1,16 +1,22 @@
 Rails.application.routes.draw do
-  get 'events/new'
-  get 'events/create'
-  get 'events/edit'
-  get 'events/show'
-  get 'events/index'
-  get 'events/search'
-  get 'events/delete'
-  get 'events/update'
-  
-  root to: 'groups#index'
-  get 'event/search'
-  resources :groups
+  root to: 'home#top'
+  get 'home/help'
   resources :events
-  resources :users
+
+  resources :groups do
+  	collection do
+	  	get '/sign_up' ,to: "groups#new"
+	  	post '/sign_up' ,to: "groups#create"
+  	end
+  end
+ 
+  
+  resources :users ,only: [:edit,:update,:destroy,:show] do 
+  	collection do
+    	get '/sign_up' ,to: "users#new"
+  		post '/sign_up' ,to: "users#create"
+  	end
+  end
+  
+
 end

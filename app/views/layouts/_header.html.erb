@@ -1,0 +1,25 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <a id="logo">検さーくル <i class='fa fa-search'></i></a>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "トップ",  root_path %></li>
+        <li><%= link_to "使い方",   home_help_path %></li>
+        <li id='for_person'>
+          <a>個人利用</a>
+          <div class='user-toggle toggle'>
+            <%= link_to "新規登録" ,sign_up_users_path%>
+            <%= link_to "ログイン" %>
+          </div>
+        </li>
+        <li id='for_group'>
+          <a>団体利用</a>
+          <div class='group-toggle toggle'>
+            <%= link_to "団体登録" ,sign_up_groups_path%>
+            <%= link_to "団体ログイン" %>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

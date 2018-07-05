@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.0'
 # ハッシュ作成用
 gem 'bcrypt','3.1.11'
 gem 'bootstrap-sass', '3.3.7'
+gem "font-awesome-rails"
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
