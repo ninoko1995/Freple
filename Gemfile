@@ -5,6 +5,9 @@ ruby '2.5.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
+# ハッシュ作成用
+gem 'bcrypt','3.1.11'
+gem 'bootstrap-sass', '3.3.7'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -38,6 +41,14 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'sqlite3', '1.3.13'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # database見やすくするよう
+  gem 'hirb'
+  gem 'hirb-unicode'
+
+  # for debug
+  gem 'pry-rails' #rails c でuse pry instead of irb
+  gem 'pry-doc' #display method
+  gem 'pry-byebug' #display debug
 end
 
 group :development do
