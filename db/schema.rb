@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_05_150600) do
+ActiveRecord::Schema.define(version: 2018_07_05_172349) do
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.date "date"
+    t.string "start_time"
+    t.string "place"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "group_id"
+    t.integer "price"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.string "captain_name"
+    t.string "tel"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.index ["email"], name: "index_groups_on_email", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

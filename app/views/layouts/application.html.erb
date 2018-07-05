@@ -10,7 +10,11 @@
   </head>
 
   <body>
-    <p>test</p>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class='container'>
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
