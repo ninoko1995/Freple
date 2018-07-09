@@ -7,6 +7,7 @@ ruby '2.5.0'
 gem 'rails', '~> 5.2.0'
 # ハッシュ作成用
 gem 'bcrypt','3.1.11'
+# デザイン用
 gem 'bootstrap-sass', '3.3.7'
 gem "font-awesome-rails"
 # Use Puma as the app server
@@ -28,6 +29,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# forjquery
+gem 'jquery-rails' 
+gem 'jquery-ui-rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

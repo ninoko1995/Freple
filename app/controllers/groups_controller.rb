@@ -10,6 +10,9 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @group=Group.find(params[:id])
+    @events=@group.events
+    @event_index="開催イベント一覧"
   end
 
   # GET /groups/new
@@ -25,9 +28,9 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-
     respond_to do |format|
       if @group.save
+        log_in_group(@group)
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
         format.json { render :show, status: :created, location: @group }
       else

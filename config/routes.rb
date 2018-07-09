@@ -1,22 +1,16 @@
 Rails.application.routes.draw do
   root to: 'home#top'
   get 'home/help'
-  resources :events
+  post 'events/search',to: 'events#search'
+  resources :events 
 
-  resources :groups do
-  	collection do
-	  	get '/sign_up' ,to: "groups#new"
-	  	post '/sign_up' ,to: "groups#create"
-  	end
-  end
- 
+  resources :groups
+	get    'group/login',   to: 'group_sessions#new'
+  post   'group/login',   to: 'group_sessions#create'
+  delete 'group/logout',  to: 'group_sessions#destroy'
   
-  resources :users ,only: [:edit,:update,:destroy,:show] do 
-  	collection do
-    	get '/sign_up' ,to: "users#new"
-  		post '/sign_up' ,to: "users#create"
-  	end
-  end
-  
-
+  resources :users ,only: [:new,:create,:edit,:update,:destroy,:show]  
+  get    'user/login',   to: 'user_sessions#new'
+  post   'user/login',   to: 'user_sessions#create'
+  delete 'user/logout',  to: 'user_sessions#destroy'
 end

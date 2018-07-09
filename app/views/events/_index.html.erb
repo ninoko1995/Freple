@@ -1,0 +1,16 @@
+<table>
+	<tr>
+		<th>イベント名</th>
+		<th>参加費用</th>
+		<th>開催場所</th>
+		<th>サークル名</th>
+	</tr>
+<% events.each do |e| %>
+	<tr>
+		<td><%= link_to e.name,event_path(e) %></td>
+		<td><%= e.price %>円</td>
+		<td><%= e.place %></td>
+		<td><%= e.group.name %></td>
+	</tr>
+<% end %>
+</table>

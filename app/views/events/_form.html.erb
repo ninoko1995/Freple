@@ -1,0 +1,68 @@
+<div class='row'>
+  <div class='col-md-6 col-md-offset-3'>
+    <%= form_for(event) do |form| %>
+      <% if event.errors.any? %>
+        <div id="error_explanation">
+          <div class='alert alert-danger'><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</div>
+
+          <ul>
+          <% event.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :name,'イベント名' %>
+        <%= form.text_field :name ,class: 'form-control'%>
+      </div>
+
+      
+      <div class="field">
+        <%= form.label :place,'開催場所' %>
+        <%= form.text_field :place ,class: 'form-control'%>
+      </div>
+
+      <div class="field">
+        <%= form.label :description,'詳細説明' %>
+        <%= form.text_field :description ,class: 'form-control'%>
+      </div>
+
+      <div class="field">
+        <%= form.label :price,'参加費' %>
+        <%= form.number_field :price ,class: 'form-control'%>
+      </div>
+
+      <div class="field">
+        <%= form.label :dead_line,'申し込み締め切り日' %>
+        <%= form.date_select :dead_line ,class: 'form-control'%>
+      </div>
+
+      <div class="field">
+        <%= form.label :start_time,'開始時間' %>
+        <%= form.datetime_select :start_time ,class: 'form-control'%>
+      </div>
+
+      <div class="field">
+        <%= form.label :end_time,'終了時間' %>
+        <%= form.datetime_select :end_time ,class: 'form-control'%>
+      </div>
+
+      <div class="field">
+        <%= form.label :accepted_number,'募集人数' %>
+        <%= form.number_field :accepted_number ,class: 'form-control'%>
+      </div>
+
+      <div class="field">
+        <%= form.label :release,'公開しますか？' %>
+        <%= form.check_box :release ,class: 'form-control'%>
+      </div>
+  
+      <div class="actions">
+        <%= form.submit class: "btn btn-primary"%>
+      </div>
+    <% end %>
+    
+  </div>
+</div>

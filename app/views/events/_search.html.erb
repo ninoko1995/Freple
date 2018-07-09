@@ -1,0 +1,27 @@
+<h1>イベント検索</h1>
+
+<%= form_tag(events_search_url ,method: :post) do %>
+	<div class="field">
+        <%= label :price,'参加費用' %>
+        <div class='row'>
+	        <div class='col-md-5 col-lg-5'>
+	        	<%= number_field_tag :lowest_price ,class: 'form-control'%>
+	        </div>
+	        <div class='col-md-1 col-lg-1'>円～</div>
+	        <div class='col-md-5 col-lg-5'>
+	        	<%= number_field_tag :highest_price,class: 'form-control'%>
+	    	</div>
+	    </div>
+
+	    <!-- <%= label :start_date,"日程"%> -->
+	    <!-- <%= %> -->
+
+	    <!-- <%= label :place,"集合場所" %> -->
+	    <!-- <%= %> -->
+
+	    <%= submit_tag "検索" %>
+    </div>
+
+
+
+<% end %>

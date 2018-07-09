@@ -5,20 +5,33 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "トップ",  root_path %></li>
         <li><%= link_to "使い方",   home_help_path %></li>
-        <li id='for_person'>
-          <a>個人利用</a>
-          <div class='user-toggle toggle'>
-            <%= link_to "新規登録" ,sign_up_users_path%>
-            <%= link_to "ログイン" %>
-          </div>
-        </li>
-        <li id='for_group'>
-          <a>団体利用</a>
-          <div class='group-toggle toggle'>
-            <%= link_to "団体登録" ,sign_up_groups_path%>
-            <%= link_to "団体ログイン" %>
-          </div>
-        </li>
+        <% if (!logged_in_user?)&&(!logged_in_group?) %>
+          <li>
+            <a  id='for-person'>個人利用</a>
+            <div id='user-toggle' class='none toggle'>
+              <%= link_to "新規登録" ,new_user_path%>
+              <%= link_to "ログイン" ,user_login_path%>
+            </div>
+          </li>
+          <li>
+            <a id='for-group'>団体利用</a>
+            <div id='group-toggle' class='none toggle'>
+              <%= link_to "団体登録" ,new_group_path%>
+              <%= link_to "団体ログイン" ,group_login_path%>
+            </div>
+          </li>
+        <% else %>
+          <% if logged_in_user? %>
+            <li><%= link_to "マイページ" ,user_path(current_user)%></li>
+            <li><%= link_to "ログアウト" ,user_logout_path,method: :delete %></li>
+          <% end %>
+
+          <% if logged_in_group? %>
+            <li><%= link_to "グループページ" ,group_path(current_group)%></li>
+            <li><%= link_to "ログアウト" ,group_logout_path,method: :delete %></li>
+          <% end %>          
+
+        <% end %>
       </ul>
     </nav>
   </div>

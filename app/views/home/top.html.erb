@@ -1,11 +1,14 @@
-<div>
-	<h2>大学生活エンジョイしましょう！！</h2>
+<div class='row'>
+	<div class='contents search-event col-md-4 col-lg-4 col-lg-offset-1'>
+		<%= render 'events/search' %>
+	</div>
+
+	<!-- <div class='contents search-group col-md-4 col-lg-4 col-lg-offset-2'>
+		<%= render 'groups/search' %>
+	</div> -->
 </div>
 
-<div class='contents search-event'>
-	<%= render 'events/search' %>
-</div>
-
-<div class='contents search-group'>
-	<%= render 'groups/search' %>
-</div>
+<dev>
+	<h3><%= @event_index %></h3>
+	<%= render 'events/index',events: @events %>
+</dev>

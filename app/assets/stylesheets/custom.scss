@@ -8,6 +8,9 @@
 }
 
 .toggle{
+  color:white;
+}
+.none{
   display:none;
 }
 
@@ -51,8 +54,15 @@ input {
   @include box_sizing;
 }
 
+.body{
+  margin-top:50px;
+}
 
 /* header */
+
+header{
+  height:50px;
+}
 
 #logo {
   float: left;

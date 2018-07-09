@@ -21,4 +21,17 @@
 </p>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+
+<%= link_to 'Create Event',new_event_path %>
+
+
+<dev>
+	<h3><%= @event_index %></h3>
+	<% if @events.count == 0 %>
+		<p>開催予定のイベントはありません</p>
+	<% else %>
+		<p><%= @events.count %>個のイベントが計画されています</p>
+		<%= render 'events/index',events: @events %>
+	<% end %>
+	
+</dev>

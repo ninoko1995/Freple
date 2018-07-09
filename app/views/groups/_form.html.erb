@@ -1,9 +1,9 @@
 <div class='row'>
   <div class='col-md-6 col-md-offset-3'>
-    <%= form_with(model: group, local: true, url: sign_up_groups_path) do |form| %>
+    <%= form_for(group) do |form| %>
       <% if group.errors.any? %>
         <div id="error_explanation">
-          <div class='alert alert-danger'><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</div>
+          <div class='alert alert-danger'><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</div>
 
           <ul>
           <% group.errors.full_messages.each do |message| %>
