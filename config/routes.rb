@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
   root to: 'home#top'
   get 'home/help'
+  
   post 'events/search',to: 'events#search'
-  resources :events 
+  resources :events do
+    resources :entries,only:[:create]
+  end
+
+  resources :entries,only:[:destroy] do
+    collection do
+      post 'accept'
+    end
+  end
 
   resources :groups
 	get    'group/login',   to: 'group_sessions#new'

@@ -1,7 +1,8 @@
 class Event < ApplicationRecord
 	belongs_to :group
 	has_many :interestings
-	has_many :participations
+	has_many :entries
+	has_many :users, through: :entries
 
 	validates :name,length:{in: 20..100}
 	validates :place,presence:true

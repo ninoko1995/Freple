@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-	has_many :participations
+	has_many :entries
 	has_many :interestings
+	has_many :events, through: :entries
 
 	before_save {self.email = email.downcase}
 	validates :name, 

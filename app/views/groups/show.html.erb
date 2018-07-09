@@ -20,10 +20,10 @@
   <%= @group.tel %>
 </p>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-
-<%= link_to 'Create Event',new_event_path %>
-
+<% if logged_in_group? && current_group.id == @group.id %>
+	<%= link_to 'Edit', edit_group_path(@group) %> |
+	<%= link_to 'Create Event',new_event_path %>
+<% end %>
 
 <dev>
 	<h3><%= @event_index %></h3>
@@ -33,5 +33,4 @@
 		<p><%= @events.count %>個のイベントが計画されています</p>
 		<%= render 'events/index',events: @events %>
 	<% end %>
-	
 </dev>

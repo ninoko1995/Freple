@@ -10,4 +10,9 @@
   <%= @user.email %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+<%= link_to '登録情報の修正', edit_user_path(@user) %>
+
+<h3>参加予定のイベント一覧</h3>
+<% current_user.events.each do |event|%>
+	<p><%= link_to event.group.name,group_path(event.group) %> | <%= link_to event.name,event_path(event) %></p>
+<% end %>
