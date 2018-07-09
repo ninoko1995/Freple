@@ -10,14 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_05_212425) do
+ActiveRecord::Schema.define(version: 2018_07_09_130855) do
+
+  create_table "entries", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+    t.boolean "accecpted", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.string "place"
     t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "group_id"
     t.integer "price"
     t.datetime "start_time"
@@ -26,6 +32,8 @@ ActiveRecord::Schema.define(version: 2018_07_05_212425) do
     t.boolean "release"
     t.boolean "accepted"
     t.integer "accepted_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "groups", force: :cascade do |t|
@@ -33,10 +41,9 @@ ActiveRecord::Schema.define(version: 2018_07_05_212425) do
     t.string "name"
     t.string "captain_name"
     t.string "tel"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.index ["email"], name: "index_groups_on_email", unique: true
   end
 
   create_table "interestings", force: :cascade do |t|
@@ -46,21 +53,12 @@ ActiveRecord::Schema.define(version: 2018_07_05_212425) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "participations", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "event_id"
-    t.boolean "acccepted", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end

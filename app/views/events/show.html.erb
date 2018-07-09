@@ -18,3 +18,7 @@
 <% if logged_in_group? && @event.group_id == current_group.id %>
 	<%= link_to 'Edit', edit_event_path(@event) %>
 <% end %>
+
+<% if logged_in_user? %>
+	<%= link_to '参加申し込み', %>
+<% end %>
