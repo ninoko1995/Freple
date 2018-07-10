@@ -20,7 +20,7 @@ group_num.times do |i|
 		)
 	event_num.times do |j|
 		Event.create!(
-			name:"団体#{i+1}の第#{j}回目の新歓イベント！ぜひご参加ください！",
+			name:"団体#{i+1}の第#{j+1}回目の新歓イベント！ぜひご参加ください！",
 			place:"渋谷",
 			description: "団体#{i+1}の第#{j}回目の新歓イベント！ぜひご参加ください！今回は、渋谷のおしゃれなカフェでお茶会を開きます。よろしくね～～",
 			price:j*1000,
