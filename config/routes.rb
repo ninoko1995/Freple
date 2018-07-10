@@ -13,7 +13,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :groups
+
+  resources :groups do
+    resources :interestings,only:[:create]
+  end
+  resources :interestings,only:[:destroy]
+
 	get    'group/login',   to: 'group_sessions#new'
   post   'group/login',   to: 'group_sessions#create'
   delete 'group/logout',  to: 'group_sessions#destroy'

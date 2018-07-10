@@ -19,6 +19,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @users=@event.users
   end
 
   def destory

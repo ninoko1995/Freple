@@ -25,6 +25,16 @@
 	<%= link_to 'Create Event',new_event_path %>
 <% end %>
 
+<% if logged_in_user? %>
+	<% @interesting = Interesting.find_by(user_id: current_user.id,group_id: params[:id]) %>
+	<% if @interesting.nil? %>
+		<%= link_to '気になるアピール',group_interestings_path(@group),method: :post %>
+	<% else %>
+		<%= link_to '気になり中',interesting_path(@interesting),method: :delete %>
+	<% end %>
+<% end %>
+
+
 <dev>
 	<h3><%= @event_index %></h3>
 	<% if @events.count == 0 %>
@@ -34,3 +44,14 @@
 		<%= render 'events/index',events: @events %>
 	<% end %>
 </dev>
+
+<% if logged_in_group? && current_group.id == @group.id %>
+	<div>
+		<h3>注目ユーザー一覧</h3>
+		<% @group.users.each do |user| %>
+			<%= link_to user.name,user_path(user) %>
+		<% end %>
+
+	</div>
+	
+<% end %>

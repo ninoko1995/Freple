@@ -18,6 +18,7 @@
 <% if logged_in_group? && @event.group_id == current_group.id %>
 	<%= link_to 'Edit', edit_event_path(@event) %>
 	<h4>参加希望者一覧</h4>
+	<%= @users.count %>人のユーザーが参加希望。
 	<p id="notice"><%= notice %></p>
 	<table>
 		<thead>
@@ -30,7 +31,7 @@
 	 	</thead>
 
 		<tbody>
-			<% @event.users.each do |user| %>
+			<% @users.each do |user| %>
 				<tr>
 					<td><%= user.name %></td>
 					<td><%= user.email %></td>

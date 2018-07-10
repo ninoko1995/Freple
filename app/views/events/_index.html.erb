@@ -10,7 +10,7 @@
 		<td><%= link_to e.name,event_path(e) %></td>
 		<td><%= e.price %>円</td>
 		<td><%= e.place %></td>
-		<td><%= e.group.name %></td>
+		<td><%= link_to e.group.name,group_path(e.group) %></td>
 	</tr>
 <% end %>
 </table>

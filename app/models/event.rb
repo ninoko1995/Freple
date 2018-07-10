@@ -1,6 +1,5 @@
 class Event < ApplicationRecord
 	belongs_to :group
-	has_many :interestings
 	has_many :entries
 	has_many :users, through: :entries
 
@@ -15,4 +14,5 @@ class Event < ApplicationRecord
 	validates :release,presence:true
 	validates :accepted,presence:true
 	validates :accepted_number,presence:true
+
 end

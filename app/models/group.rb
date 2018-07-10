@@ -1,5 +1,7 @@
 class Group < ApplicationRecord
 	has_many :events
+	has_many :interestings
+	has_many :users, through: :interestings
 
 	before_save {self.email = email.downcase}
 	validates :name, 
