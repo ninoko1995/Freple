@@ -14,15 +14,15 @@ group_num.times do |i|
 	Group.create!(
 		name:"団体#{i+1}",
 		email: "g#{i+1}@g.g",
-		password: "#{i}#{i}#{i}#{i}#{i}#{i}",
+		password: "#{i%10+1}"*6,
 		captain_name: "団体#{i+1}の代表",
-		tel: "#{i%10}"*11
+		tel: "#{(i+1)%10}"*11
 		)
 	event_num.times do |j|
 		Event.create!(
 			name:"団体#{i+1}の第#{j+1}回目の新歓イベント！ぜひご参加ください！",
 			place:"渋谷",
-			description: "団体#{i+1}の第#{j}回目の新歓イベント！ぜひご参加ください！今回は、渋谷のおしゃれなカフェでお茶会を開きます。よろしくね～～",
+			description: "団体#{i+1}の第#{j+1}回目の新歓イベント！ぜひご参加ください！今回は、渋谷のおしゃれなカフェでお茶会を開きます。よろしくね～～",
 			price:j*1000,
 			accepted_number:45-j*10,
 			release: true,
@@ -42,7 +42,10 @@ user_num.times do |i|
 	User.create!(
 		name:"ユーザーその#{i+1}",
 		email: "u#{i+1}@u.u",
-		password: "#{i}#{i}#{i}#{i}#{i}#{i}")
+		password: "#{(i+1)%10}"*6)
+
 end
+
+
 puts 'finish users'
 
