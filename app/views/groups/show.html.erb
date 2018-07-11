@@ -1,23 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>サークル名:</strong>
+  <%= @group.name %>
+</p>
+
+
+<p>
+  <strong>メールアドレス:</strong>
   <%= @group.email %>
 </p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @group.name %>
+  <strong>電話番号:</strong>
+  <%= @group.tel %>
 </p>
 
 <p>
-  <strong>Captain name:</strong>
+  <strong>代表名:</strong>
   <%= @group.captain_name %>
 </p>
 
 <p>
-  <strong>Tel:</strong>
-  <%= @group.tel %>
+  <strong>説明:</strong>
+  <%= @group.description %>
 </p>
 
 <% if logged_in_group? && current_group.id == @group.id %>

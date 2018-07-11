@@ -33,7 +33,7 @@ class EventsController < ApplicationController
   def search
     low = params[:lowest_price]
     high = params[:highest_price]
-    @events = Event.where(price: low..high)
+    @events = Event.where(price: low..high).order("created_at DESC")
     @event_index='検索結果'
     render 'home/top'
   end
