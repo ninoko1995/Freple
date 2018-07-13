@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
-  berore_action :check_logged_in_user?,only:[:create,:destroy]
-  berore_action :check_logged_in_group?,only:[:action]
+  before_action :check_logged_in_user?,only:[:create,:destroy]
+  before_action :check_logged_in_group?,only:[:action]
   
   def create
   	Entry.create(user_id:current_user.id,event_id:params[:event_id])
