@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event,only:[:show,:edit,:destory,:update]
-  before_actoin :check_logged_in_group?,only:[:new,:create]
+  before_action :check_logged_in_group?,only:[:new,:create]
 
   def new
     @event = Event.new
