@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event,only:[:show,:edit,:destory,:update]
+  before_actoin :check_logged_in_group?,only:[:new,:create]
+
   def new
     @event = Event.new
   end
@@ -16,6 +18,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    correct_group?(@event.group)
   end
 
   def show
@@ -23,11 +26,13 @@ class EventsController < ApplicationController
   end
 
   def destory
+    correct_group?(@event.group)
     @event.destory
     redirect_to group_path(current_group)
   end
 
   def update
+    correct_group?(@event.group)
   end
 
   def search

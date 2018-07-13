@@ -23,4 +23,21 @@ class ApplicationController < ActionController::Base
 	#     	redirect_to @request_from and return true
 	#     end
 	# end
+
+	def check_logged_in_user?
+    if !logged_in_user?
+      redirct_back(fall_back_location: root_path,notice: "ログインしてください")
+    end
+  end
+  
+  def check_logged_in_group?
+    if !logged_in_group?
+      redirct_back(fall_back_location: root_path,notice: "ログインしてください")
+    end
+  end
+
+  def correct_group?(group)
+    if !(logged_in_group? && current_group.id==group.id)
+      redirct_back(fall_back_location: root_path,notice: "ログインしてください")
+  end
 end
