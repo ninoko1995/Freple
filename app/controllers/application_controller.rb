@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 	include UserSessionsHelper
 	include GroupSessionsHelper
 	
+	
 
 	# before_filter :set_request_from
 	
